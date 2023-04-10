@@ -10,7 +10,7 @@
   <body>
        <h1>Get a FizzBuz Result</h1>
      <span>Type a number: <input type="number"><button type="button">Click here !</button></span>
-        <p>Result: <span></span></p>
+        <p></p>
     <script>
       // JavaScript code for FizzBuzz game
         const input = document.querySelector("input");
@@ -20,6 +20,7 @@
         
         button.addEventListener("click", function() {
           const number = parseInt(input.value);
+          const paragraf = document.createElement("p");
           if (number % 3 === 0 && number % 5 === 0 ) {
             result.innerHTML = "FizzBuzz";
           } else if (number % 3 === 0) {
@@ -27,15 +28,16 @@
           } else if (number % 5 === 0) {
             result.innerHTML = "Buzz";
           } else if (number === "") {
-            result.innerHTML = "Please enter a number";
+            result.innerHTML += "Please enter a number";
           }else if (number % 0 === 0) {
                 result.innerHTML = "invalid number";
           } else {
             result.innerHTML = `${number}`;
           }
+          const text = document.createTextNode(result.innerHTML);
+          paragraf.appendChild(text);
+          span.appendChild(paragraf);
 
-        //  jika inputan kosong maka muncul tulisan "Please enter a number"
-         
         });
     </script>
   </body>
